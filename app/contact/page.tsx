@@ -106,9 +106,9 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 my-12">
       {/* Blue Header Section */}
-      <div className="bg-blue-600 text-white py-12 px-6 md:px-12">
+      <div className="bg-blue-600 text-white py-12 px-6 md:px-12 rounded-t-lg">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-3xl md:text-4xl font-bold mb-2">Get in Touch</h1>
           <p className="text-lg md:text-xl mb-8">We are excited to learn how we can help you</p>
@@ -161,7 +161,7 @@ export default function ContactPage() {
       </div>
 
       {/* Form Section */}
-      <main className="py-12 px-6 md:px-12" style={{ backgroundColor: '#e7e7f1' }}>
+      <main className="py-12 px-6 md:px-12 rounded-b-lg shadow-lg" style={{ backgroundColor: '#e7e7f1' }}>
         <div className="max-w-6xl mx-auto">
           {submitted && (
             <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
