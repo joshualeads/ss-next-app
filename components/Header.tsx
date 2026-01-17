@@ -25,6 +25,9 @@ export default function Header() {
             <Link href="/news" className="text-gray-700 hover:text-gray-900">
               News
             </Link>
+            <Link href="/contact" className="text-gray-700 hover:text-gray-900">
+              Contact Us
+            </Link>
           </div>
         </div>
       </nav>
@@ -63,7 +66,7 @@ export default function Header() {
           {/* Sidebar */}
           <div className="absolute inset-y-0 left-0 w-4/5 max-w-sm bg-white shadow-lg flex flex-col overflow-y-auto">
             {/* Close Button */}
-            <div className="flex justify-end p-6 flex-shrink-0">
+            <div className="flex justify-end pt-4 px-6 flex-shrink-0">
               <button
                 onClick={() => setIsMenuOpen(false)}
                 className="w-10 h-10 flex items-center justify-center bg-white rounded-full"
@@ -76,8 +79,13 @@ export default function Header() {
               </button>
             </div>
 
+            {/* SidebarNav for Mobile */}
+            <div onClick={() => setIsMenuOpen(false)}>
+              <SidebarNav />
+            </div>
+            
             {/* Navigation Links */}
-            <div className="flex flex-col gap-6 px-6 flex-shrink-0">
+            <div className="flex flex-col gap-3 px-6 pb-6 flex-shrink-0">
               <Link
                 href="/about"
                 className="text-base font-bold text-gray-900"
@@ -92,12 +100,15 @@ export default function Header() {
               >
                 News
               </Link>
+              <Link
+                href="/contact"
+                className="text-base font-bold text-gray-900"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact Us
+              </Link>
             </div>
 
-            {/* SidebarNav for Mobile */}
-            <div onClick={() => setIsMenuOpen(false)} className="flex-1">
-              <SidebarNav />
-            </div>
           </div>
         </div>
       )}
