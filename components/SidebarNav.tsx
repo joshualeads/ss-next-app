@@ -28,7 +28,7 @@ export default function SidebarNav() {
   ];
 
   return (
-    <aside className="w-full md:w-48 bg-white px-6 md:px-0 py-6 md:border-r border-gray-200 md:mr-6">
+    <aside className="w-full md:w-48 h-full md:h-full bg-white px-6 md:px-0 py-6 md:border-r border-gray-200 md:mr-6">
       <nav className="space-y-6">
         {categories.map((category, index) => (
           <div key={index} className="space-y-1">

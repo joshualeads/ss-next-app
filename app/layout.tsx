@@ -32,8 +32,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
-        <main className="flex w-full md:w-11/12 md:mx-auto flex-col md:flex-row">
-          <SidebarNav />
+        <main className="flex w-full md:w-11/12 md:mx-auto flex-col md:flex-row mt-[65px] md:mt-[73px]" >
+          <div className="hidden md:block">
+            <SidebarNav />
+          </div>
           <div className="flex-1">
             {children}
             <LayoutClient />

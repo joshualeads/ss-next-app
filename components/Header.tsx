@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import SidebarNav from "./SidebarNav";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,25 +10,27 @@ export default function Header() {
   return (
     <header>
       {/* Desktop Header */}
-      <nav className="hidden md:flex w-11/12 mx-auto py-4 justify-between items-center border-b border-gray-200">
+      <nav className="hidden md:flex fixed top-0 left-0 right-0 w-full py-4 justify-center items-center border-b border-gray-200 bg-white z-40">
+        <div className="w-11/12 flex justify-between items-center">
         {/* Logo/Brand */}
         <Link href="/" className="text-2xl font-bold text-blue-600">
           Senowell Systems
         </Link>
 
-        {/* Navigation Links */}
-        <div className="flex gap-8">
-          <Link href="/about" className="text-gray-700 hover:text-gray-900">
-            About
-          </Link>
-          <Link href="/news" className="text-gray-700 hover:text-gray-900">
-            News
-          </Link>
+          {/* Navigation Links */}
+          <div className="flex gap-8">
+            <Link href="/about" className="text-gray-700 hover:text-gray-900">
+              About
+            </Link>
+            <Link href="/news" className="text-gray-700 hover:text-gray-900">
+              News
+            </Link>
+          </div>
         </div>
       </nav>
 
       {/* Mobile Header */}
-      <nav className="md:hidden w-full px-6 py-4 flex items-center gap-4 border-b border-gray-200">
+      <nav className="md:hidden fixed top-0 left-0 right-0 w-full px-6 py-4 flex items-center gap-4 border-b border-gray-200 bg-white z-40">
         {/* Hamburger Menu */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -58,9 +61,9 @@ export default function Header() {
           ></div>
 
           {/* Sidebar */}
-          <div className="absolute inset-y-0 left-0 w-4/5 max-w-sm bg-white shadow-lg flex flex-col">
+          <div className="absolute inset-y-0 left-0 w-4/5 max-w-sm bg-white shadow-lg flex flex-col overflow-y-auto">
             {/* Close Button */}
-            <div className="flex justify-end p-6">
+            <div className="flex justify-end p-6 flex-shrink-0">
               <button
                 onClick={() => setIsMenuOpen(false)}
                 className="w-10 h-10 flex items-center justify-center bg-white rounded-full"
@@ -74,21 +77,26 @@ export default function Header() {
             </div>
 
             {/* Navigation Links */}
-            <div className="flex flex-col gap-6 px-6 py-4">
+            <div className="flex flex-col gap-6 px-6 flex-shrink-0">
               <Link
                 href="/about"
-                className="text-xl font-semibold text-gray-900"
+                className="text-base font-bold text-gray-900"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
               </Link>
               <Link
                 href="/news"
-                className="text-xl font-semibold text-gray-900"
+                className="text-base font-bold text-gray-900"
                 onClick={() => setIsMenuOpen(false)}
               >
                 News
               </Link>
+            </div>
+
+            {/* SidebarNav for Mobile */}
+            <div onClick={() => setIsMenuOpen(false)} className="flex-1">
+              <SidebarNav />
             </div>
           </div>
         </div>
